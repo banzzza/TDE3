@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Melhores Macacos</title>
+    <link rel="icon" type="image/png" href="imagens/icons8-banana-48.png">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <script>
+        function loadRandomDadJoke() {
+            fetch('https://icanhazdadjoke.com/', {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('dad-joke').innerText = data.joke;
+            })
+            .catch(error => console.error('Erro ao carregar a piada do papai:', error));
+        }
+    </script>
+
+</head>
+<body class="main-body">
+
+    <div id="menu-container">
+        <button id="menu-button">
+            <div class="menu-icon">
+                <div class="menu-line"></div>
+                <div class="menu-line"></div>
+                <div class="menu-line"></div>
+            </div>
+        </button>
+        <div id="menu-background" class="menu-background hidden"></div>
+        <div id="menu-list" class="menu-list hidden">
+            <ul>
+                <li><a href="index.html">Menu Principal</a></li>
+                <li><a href="testepi.html">API TESTE</a></li>
+            </ul>
+        </div>
+    </div>
+    
+
+    <header>
+
+        <h1 class="header-title">Macacos (Os Melhores)</h1>
+        <img src="imagens/monkey-monke.gif" alt="macacogif" class="header-gif">
+
+    </header>
+
+    <section class="content-section2">
+        <h1>Piadas para até macaco rir</h1>
+
+        <br />
+
+    <div class="piadas-div">
+        <button onclick="loadRandomDadJoke()">Gerar Piada</button>
+        <p id="dad-joke"></p>
+    </div>    
+    
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Macacos(Os Melhores). Todos os direitos reservados (para os macacos).</p>
+    </footer>
+</body>
+</html>
